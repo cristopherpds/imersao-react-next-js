@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Head from 'next/head'
+import styled from 'styled-components';
+import Head from 'next/head';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
@@ -29,14 +29,13 @@ margin: auto 10%;
 }
 `;
 
-
-
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
         <title>{db.title} </title>
         <meta property="og:image" content={db.bg} key="title" />
+        <meta property="og:description" content="Quiz sobre League Of Lege"/>
       </Head>
     <QuizContainer>
       <QuizLogo backgroundImage={db.bg} />
@@ -46,7 +45,7 @@ export default function Home() {
         </Widget.Header>
         <Widget.Content>
           <p>{db.description} </p>
-          <Widget.Input placeholder="..."/>
+          <Widget.Input  placeholder="..."/>
         </Widget.Content>
       </Widget>
 

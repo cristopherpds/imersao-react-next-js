@@ -47,6 +47,10 @@ Widget.Content = styled.div`
   }
 `;
 
+Widget.Button = styled.button`
+  position: flex;
+  
+`;
 Widget.Header = styled.div`
   display: flex;
   justify-content: flex-start;
