@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+
 const Widget = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
@@ -21,7 +22,6 @@ const Widget = styled.div`
   }
 `;
 
-
 Widget.Input = styled.input`
   width: 100%;
   font-size: 15px;
@@ -31,7 +31,7 @@ Widget.Input = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 5px;
   background-color: transparent;
-`
+`;
 
 Widget.Content = styled.div`
   padding: 24px 32px 32px 32px;
