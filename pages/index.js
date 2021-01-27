@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
@@ -9,6 +8,8 @@ import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 /* const BackgroundImage = styled.div`
 background-image:url(${db.bg});
@@ -32,31 +33,9 @@ export default function Home() {
   const [name, setName] = useState('');
   return (
     <>
-      <Head>
-        <title>League Of Legends</title>
-        <link rel="icon" href="icon.png" />
-
-        <meta name="description" content={db.description} />
-
-        <meta property="og:site_name" content="LOL Quiz" />
-
-        <meta property="og:title" content={db.title} />
-        <meta property="og:description" content={db.description} />
-
-        <meta property="og:image" content={db.bg} />
-        <meta property="og:image:type" content="image/png" />
-
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={db.title} />
-        <meta name="twitter:description" content={db.description} />
-        <meta name="twitter:image" content={db.bg} />
-      </Head>
       <QuizBackground backgroundImage={db.bg}>
         <QuizContainer>
-          <QuizLogo backgroundImage={db.bg} />
+          <QuizLogo />
           <Widget>
             <Widget.Header>
               <h1>{db.title}</h1>
@@ -69,19 +48,17 @@ export default function Home() {
                 router.push(`/quiz?name=${name}`);
               }}
               >
-                <Widget.Input
-                  // eslint-disable-next-line react/jsx-no-bind
-                  onChange={function (infoDo) {
+                <Input
+                  name="userName"
+                  onChange={(infoDo) => {
                     console.log(infoDo.target.value);
-                    // name = infoDo.target.value;
                     setName(infoDo.target.value);
                   }}
-                  placeholder="Digite seu nome"
+                  placeholder="Digite seu nome para jogar"
                 />
-                <button type="submit" disabled={name.length === 0}>
-                  Jogar
-                  {name}
-                </button>
+                <Button type="submit" disabled={name.length === 0}>
+                  {`jogar ${name}`}
+                </Button>
               </form>
             </Widget.Content>
           </Widget>
